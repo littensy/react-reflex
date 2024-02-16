@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.15.1
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.4.2
+
+      - name: Install dependencies
+        run: |
+          wally install
+          rojo sourcemap dev.project.json --output sourcemap.json
+          wally-package-types --sourcemap sourcemap.json Packages
+          pnpm install
+
+      - name: Download global Roblox types
+        run: curl -o scripts/roblox.d.lua https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.lua
+
+      - name: Analyze
+        run: luau-lsp analyze --defs=scripts/roblox.d.lua --sourcemap=sourcemap.json --ignore="**/_Index/**" src
+
+      - name: Check code quality
+        run: |
+          selene src
+          stylua --check src
+          pnpm eslint src
+
+      - name: Build model
+        run: rojo build -o react-reflex.rbxm

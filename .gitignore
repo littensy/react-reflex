@@ -1,0 +1,6 @@
+/.vscode
+/node_modules
+/Packages
+/sourcemap.json
+*.tsbuildinfo
+.DS_Store

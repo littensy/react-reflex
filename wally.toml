@@ -1,0 +1,13 @@
+[package]
+name = "littensy/react-reflex"
+description = "Use Reflex with React"
+version = "0.1.0"
+license = "MIT"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+exclude = ["**"]
+include = ["src", "src/**", "default.project.json", "wally.toml", "LICENSE.md"]
+
+[dependencies]
+React = "jsdotlua/react@17.1.0"
+Reflex = "littensy/reflex@4.3.1"

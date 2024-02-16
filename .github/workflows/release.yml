@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.4.2
+
+      - name: Install dependencies
+        run: wally install
+
+      - name: Build model
+        run: rojo build -o react-reflex.rbxm
+
+      - name: Upload release
+        uses: softprops/action-gh-release@v1
+        if: ${{ github.event.release }}
+        with:
+          files: react-reflex.rbxm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
