@@ -74,7 +74,7 @@ dependencies = [["collections", "jsdotlua/collections@1.2.6"]]
 
 [[package]]
 name = "littensy/react-reflex"
-version = "0.1.0"
+version = "0.3.1"
 dependencies = [["React", "jsdotlua/react@17.1.0"], ["Reflex", "littensy/reflex@4.3.1"]]
 
 [[package]]
