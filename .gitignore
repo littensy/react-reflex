@@ -3,4 +3,5 @@
 /Packages
 /sourcemap.json
 *.tsbuildinfo
+*.tgz
 .DS_Store

@@ -1,8 +1,3 @@
-assert(
-	script.Parent:FindFirstChild("React"),
-	`Please install React or @rbxts/react; module not found in {script.Parent:GetFullName()}`
-)
-
 local ReflexContext = require(script.components.ReflexContext)
 local ReflexProvider = require(script.components.ReflexProvider)
 local useProducer = require(script.hooks.useProducer)
