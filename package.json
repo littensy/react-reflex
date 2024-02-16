@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/react-reflex",
-	"version": "0.1.0",
+	"version": "0.3.0",
 	"description": "React bindings for Reflex",
 	"scripts": {
 		"lint": "sh scripts/check.sh"
@@ -45,6 +45,6 @@
 	},
 	"dependencies": {
 		"@rbxts/react": "*",
-		"@rbxts/reflex": "^4.3.1"
+		"@rbxts/reflex": "*"
 	}
 }
