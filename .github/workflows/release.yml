@@ -21,7 +21,7 @@ jobs:
         run: rojo build -o react-reflex.rbxm
 
       - name: Upload release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: ${{ github.event.release }}
         with:
           files: react-reflex.rbxm
