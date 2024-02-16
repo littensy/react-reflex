@@ -1,6 +1,10 @@
 local React = require(script.Parent.Parent.React)
 local useSelector = require(script.Parent.useSelector)
 
+local function pack(...)
+	return { ... }
+end
+
 --[=[
 	Similar to `useSelector`, but accepts a selector factory that returns a
 	selector. The selector factory is only called when the arguments change, and
@@ -43,7 +47,7 @@ export type UseSelectorCreatorHook<State> = <Result, Args...>(
 	@return The result of the selector
 ]=]
 local function useSelectorCreator<State, Args...>(selectorFactory: (Args...) -> (state: State) -> any, ...: Args...)
-	local arguments: { any } = table.pack(...)
+	local arguments = pack(...)
 
 	local selector = React.useMemo(function()
 		return selectorFactory(table.unpack(arguments))
