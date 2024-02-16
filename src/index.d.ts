@@ -38,11 +38,11 @@ declare namespace ReactReflex {
 	 * Returns the root producer passed to the `<ReflexProvider>`.
 	 *
 	 * @example
-	 * const rootProducer = useProducer();
+	 * const rootProducer = useProducer<RootProducer>();
 	 *
 	 * @returns The root producer passed to the `<ReflexProvider>`.
 	 */
-	function useProducer<State>(): Producer<State>;
+	function useProducer<T = Producer>(): T;
 
 	/**
 	 * Returns the result of a selector function applied to the current state.

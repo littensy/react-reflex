@@ -26,7 +26,7 @@ export type UseProducerHook<RootProducer> = () -> RootProducer
 
 	@return The root producer
 ]=]
-local function useProducer()
+local function useProducer<T>(): T
 	local producer = React.useContext(ReflexContext)
 	assert(producer, "useProducer must be used within a <ReflexProvider> component")
 	return producer
