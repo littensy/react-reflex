@@ -26,7 +26,7 @@ See the [React Reflex documentation](https://littensy.github.io/reflex/docs/guid
 
 ## 📦 Setup
 
-### Roblox-TS
+### TypeScript
 
 Install the `@rbxts/react-reflex` package using your package manager of choice.
 
