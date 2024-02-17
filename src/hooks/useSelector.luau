@@ -40,6 +40,7 @@ local function useSelector<T>(selector: (state: any) -> T, equalityFn: ((next: T
 	local producer = useProducer()
 	local latestSelector = React.useRef(selector) :: { current: typeof(selector) }
 	local didMount = React.useRef(true)
+
 	local result, setResult = React.useState(function()
 		return selector(producer:getState())
 	end)
@@ -61,6 +62,7 @@ local function useSelector<T>(selector: (state: any) -> T, equalityFn: ((next: T
 			local shouldUpdate = if equalityFn then not equalityFn(nextResult, prevResult) else nextResult ~= prevResult
 
 			if shouldUpdate then
+				prevResult = nextResult
 				setResult(nextResult)
 			end
 		end)
