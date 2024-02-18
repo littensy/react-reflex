@@ -9,7 +9,7 @@
 				"ReactLua": {
 					"$path": "Packages"
 				},
-				"ReactReflex": {
+				"react-reflex": {
 					"$path": "src"
 				}
 			}
