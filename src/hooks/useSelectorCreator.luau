@@ -46,7 +46,7 @@ export type UseSelectorCreatorHook<State> = <Result, Args...>(
 	@param ... Arguments to pass to the selector factory
 	@return The result of the selector
 ]=]
-local function useSelectorCreator<State, Args...>(selectorFactory: (Args...) -> (state: State) -> any, ...: Args...)
+local function useSelectorCreator<Result, Args...>(selectorFactory: (Args...) -> (state: any) -> Result, ...: Args...)
 	local arguments = pack(...)
 
 	local selector = React.useMemo(function()
