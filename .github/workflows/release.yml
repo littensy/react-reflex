@@ -20,7 +20,7 @@ jobs:
       - name: Build model
         run: rojo build -o react-reflex.rbxm
 
-      - uses: AButler/upload-release-assets@v3
+      - uses: AButler/upload-release-assets@v3.0
         with:
           files: "react-reflex.rbxm"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
