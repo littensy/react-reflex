@@ -39,19 +39,14 @@ export type UseSelectorHook<State> = <Result>(
 local function useSelector<T>(selector: (state: any) -> T, equalityFn: ((next: T, prev: T) -> boolean)?): T
 	local producer = useProducer()
 	local latestSelector = React.useRef(selector) :: { current: typeof(selector) }
-	local didMount = React.useRef(true)
 
 	local result, setResult = React.useState(function()
 		return selector(producer:getState())
 	end)
 
 	React.useEffect(function()
-		if didMount.current then
-			didMount.current = false
-		else
-			setResult(selector(producer:getState()))
-			latestSelector.current = selector
-		end
+		setResult(selector(producer:getState()))
+		latestSelector.current = selector
 	end, { selector })
 
 	React.useEffect(function()
