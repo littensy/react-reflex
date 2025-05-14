@@ -1,12 +1,11 @@
-local package = script.Parent.Parent:FindFirstChild("Reflex") or script.Parent.Parent:FindFirstChild("reflex").src
+--!nocheck
 
-assert(package, `Could not find Reflex in {script.Parent.Parent:GetFullName()}`)
+if script.Parent.Parent:FindFirstChild("reflex") then
+	return require(script.Parent.Parent.reflex.src)
+end
 
-type Reflex = typeof(require(script.Parent.Parent.Reflex))
+local Reflex = require(script.Parent.Parent.Reflex)
 
-export type Producer<State, Actions> = typeof((function()
-	local Reflex = require(script.Parent.Parent.Reflex)
-	return {} :: Reflex.Producer<State, Actions>
-end)())
+export type Producer<State, Actions> = Reflex.Producer<State, Actions>
 
-return require(package) :: Reflex
+return Reflex

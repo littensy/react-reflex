@@ -6,12 +6,13 @@
 			"$className": "ReplicatedStorage",
 			"Packages": {
 				"$path": "Packages",
-				"ReactLua": {
-					"$path": "Packages"
+				"react": { "$path": "Packages/React.lua" },
+				"reflex": {
+					"$className": "Folder",
+					"_Index": { "$path": "Packages/_Index" },
+					"src": { "$path": "Packages/Reflex.lua" }
 				},
-				"react-reflex": {
-					"$path": "src"
-				}
+				"react-reflex": { "$path": "src" }
 			}
 		}
 	}

@@ -18,7 +18,7 @@ local function ReflexProvider(props: Props)
 	React.useMemo(function()
 		-- Run in useMemo to set the state before rendering children
 		if props.initialState then
-			local state = table.clone(props.producer:getState())
+			local state = table.clone(props.producer:getState() :: {})
 
 			for key, value in props.initialState do
 				state[key] = value
